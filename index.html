@@ -1,0 +1,77 @@
+<link rel="stylesheet" type="text/css" href="30.css" media="screen" />
+<div id="div">
+  <label for="input-num-1">Cheval de base</label>
+  <input type="number" id="input-num-1" value="1" />
+  <label for="input-num-2">Autres chevaux</label>
+  <input type="number" id="input-num-2" value="2" />
+  <input type="number" id="input-num-3" value="3" />
+  <input type="number" id="input-num-4" value="4" />
+  <input type="number" id="input-num-5" value="5" />
+  <input type="number" id="input-num-6" value="6" />
+  <input type="number" id="input-num-7" value="7" />
+  <input type="number" id="input-num-8" value="8" />
+  <input type="number" id="input-num-9" value="9" />
+  <button id="click-me" onclick="generateRandomHorses()">Lancer les d&eacute;s</div>
+  <div id="numbers"></div>
+</div>
+
+<script>
+
+function generateRandomHorses(){
+  var base = Number(document.getElementById("input-num-1").value);
+  var numberOfHorses = Number(document.getElementById("input-num-2").value);
+  firstList = document.createElement('ul');
+  secondList = document.createElement('ul');
+  var numbers = document.getElementById('numbers');
+  head1 = document.createElement('h3');
+  head1.innerHTML = 'Liste avec cheval de base';
+  head2 = document.createElement('h3');
+  head2.innerHTML = 'Liste sans cheval de base';
+  numbers.innerHTML = '';
+  numbers.appendChild(head1);
+  numbers.appendChild(firstList);
+
+  var allHorses = [];
+  for (i = 2; i < 10; i++) {
+    allHorses.push(document.getElementById('input-num-' + i).value);
+  }
+
+  for (i = 0; i < 10; ++i) {
+    shuffleArray(allHorses);
+    list = [base];
+    for (j = 0; j < 3; j++) {
+      list.push(allHorses[j]);      
+    }
+    element = document.createElement('li');
+    element.innerHTML = list.join(', ');
+    firstList.appendChild(element);
+  }
+
+  numbers.appendChild(head2);
+  numbers.appendChild(secondList);
+  allHorses.push(base);
+  for (i = 0; i < 10; ++i) {
+    shuffleArray(allHorses);
+    list = [];
+    for (j = 0; j < 4; j++) {
+      list.push(allHorses[j]);      
+    }
+    element = document.createElement('li');
+    element.innerHTML = list.join(', ');
+    secondList.appendChild(element);
+  }
+};
+
+function shuffleArray(array) {
+  let curId = array.length;
+  while (0 !== curId) {
+    let randId = Math.floor(Math.random() * curId);
+    curId -= 1;
+    let tmp = array[curId];
+    array[curId] = array[randId];
+    array[randId] = tmp;
+  }
+  return array;
+}
+
+</script>
