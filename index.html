@@ -1,4 +1,16 @@
-<link rel="stylesheet" type="text/css" href="30.css" media="screen" />
+<style>
+body {
+  font-size: 200%;
+}
+
+input {
+  font-size: 120%;
+}
+
+button {
+  font-size: 120%;
+}
+</style>
 <div id="div">
   <label for="input-num-1">Cheval de base</label>
   <input type="number" id="input-num-1" value="1" />
@@ -36,7 +48,7 @@ function generateRandomHorses(){
     allHorses.push(document.getElementById('input-num-' + i).value);
   }
 
-  for (i = 0; i < 10; ++i) {
+  for (i = 0; i < 14; ++i) {
     shuffleArray(allHorses);
     list = [base];
     for (j = 0; j < 3; j++) {
@@ -50,7 +62,7 @@ function generateRandomHorses(){
   numbers.appendChild(head2);
   numbers.appendChild(secondList);
   allHorses.push(base);
-  for (i = 0; i < 10; ++i) {
+  for (i = 0; i < 14; ++i) {
     shuffleArray(allHorses);
     list = [];
     for (j = 0; j < 4; j++) {
